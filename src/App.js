@@ -8,12 +8,12 @@ function App() {
   const handleNewToDoSubmit = (event) => {
     event.preventDefault();
 
-    const toDo = {
+    let toDoItem = {
       text: newToDo,
       complete: false
     };
 
-    setToDo([...toDo, newToDo]);
+    setToDo([...toDo, toDoItem]);
     setNewToDo("");
   };
 
