@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import ToDos from "./components/ToDos";
 
 function App() {
   const [newToDo, setNewToDo] = useState("");
@@ -35,42 +36,36 @@ function App() {
   };
 
   return (
-    <div className="">
-      <header className="">To Do List</header>
+    <div className="container-fluid my-5">
+      <header className="display-1 text-center">To Do List</header>
       <form
+        className="border rounded-pill m-5"
         onSubmit={(event) => {
           handleNewToDoSubmit(event);
         }}
       >
-        <textarea
-          onChange={(event) => {
-            setNewToDo(event.target.value);
-          }}
-          value={newToDo}
-        ></textarea>
-        <div>
-          <button>Add</button>
+        <div className="m-5 text-center">
+          <textarea
+            className="rounded-pill px-5"
+            onChange={(event) => {
+              setNewToDo(event.target.value);
+            }}
+            value={newToDo}
+          ></textarea>
+          <div>
+            <button className="btn btn-dark rounded-pill">Add</button>
+          </div>
         </div>
       </form>
       {toDo.map((toDo, i) => {
         return (
-          <div key={i}>
-            <input
-              onChange={(event) => {
-                handleCheckBox(i);
-              }}
-              checked={toDo.complete}
-              type="checkbox"
-            />
-            <span>{toDo.text}</span>
-            <button
-              onClick={(event) => {
-                handleToDoDelete(i);
-              }}
-            >
-              Delete
-            </button>
-          </div>
+          <ToDos
+            key={i}
+            i={i}
+            toDo={toDo}
+            handleCheckBox={handleCheckBox}
+            handleToDoDelete={handleToDoDelete}
+          />
         );
       })}
     </div>
