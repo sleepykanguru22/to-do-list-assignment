@@ -39,7 +39,7 @@ function App() {
     <div className="container-fluid my-5">
       <header className="display-1 text-center">To Do List</header>
       <form
-        className="border rounded-pill m-5"
+        className="border rounded-pill m-5 shadow-lg"
         onSubmit={(event) => {
           handleNewToDoSubmit(event);
         }}
@@ -53,7 +53,7 @@ function App() {
             value={newToDo}
           ></textarea>
           <div>
-            <button className="btn btn-dark rounded-pill">Add</button>
+            <button className="btn btn-outline-dark rounded-pill">Add</button>
           </div>
         </div>
       </form>

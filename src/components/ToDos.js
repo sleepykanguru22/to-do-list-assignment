@@ -1,6 +1,6 @@
 const ToDos = (props) => {
   return (
-    <div className="text-center my-5">
+    <div className="text-center m-2">
       <input
         onChange={(event) => {
           props.handleCheckBox(props.i);
@@ -10,12 +10,12 @@ const ToDos = (props) => {
       />
       <span>{props.toDo.text}</span>
       <button
-        className="btn btn-dark rounded-pill"
+        className="btn-sm btn-dark rounded-pill"
         onClick={(event) => {
           props.handleToDoDelete(props.i);
         }}
       >
-        Delete
+        delete
       </button>
     </div>
   );
